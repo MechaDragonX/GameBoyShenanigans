@@ -1,0 +1,5 @@
+# Output Files
+out/
+
+# VS Code Workspace File
+*.code-workspace
