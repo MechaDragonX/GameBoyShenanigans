@@ -3,3 +3,6 @@
 
 # VS Code Workspace File
 *.code-workspace
+
+# Built Roms
+Built Roms/
