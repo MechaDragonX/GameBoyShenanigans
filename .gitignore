@@ -1,5 +1,5 @@
 # Output Files
-out/
+**/out
 
 # VS Code Workspace File
 *.code-workspace
