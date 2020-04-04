@@ -10,6 +10,7 @@ void main()
     set_sprite_tile(0, 0);
     move_sprite(0, 20, 78);
     SHOW_SPRITES;
+    delay(1000);
 
     while(1)
     {
