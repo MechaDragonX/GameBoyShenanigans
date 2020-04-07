@@ -3,8 +3,8 @@
 #include "src/GameCharacter.c"
 #include "src/SpriteTiles.c"
 
-struct GameCharacter spin;
-struct GameCharacter fire;
+GameCharacter spin;
+GameCharacter fire;
 UBYTE spriteSize = 8;
 UINT8 speed = 5;
 
@@ -14,7 +14,12 @@ void perfomantDelay(UINT8 loops)
     for(i = 0; i < loops; i++)
         wait_vbl_done();
 }
-void moveGameCharacter(struct GameCharacter* character, UINT8 x, UINT8 y)
+UBYTE checkCollision(GameCharacter* one, GameCharacter* two)
+{
+    return (one->x >= two->x && one->x <= two->x + two->width) && (one->y >= two->y && one->y <= two->y + two->height) ||
+    (two->x >= one->x && two->x <= one->x + one->width) && (two->y >= one->y && two->y <= one->y + one->height);
+}
+void moveGameCharacter(GameCharacter* character, UINT8 x, UINT8 y)
 {
     move_sprite(character->spriteIds[0], x, y);
     move_sprite(character->spriteIds[1], x + spriteSize, y);
@@ -73,7 +78,7 @@ void main()
     SHOW_SPRITES;
     DISPLAY_ON;
 
-    while(1)
+    while(!checkCollision(&spin, &fire))
     {
         switch(joypad())
         {
@@ -94,6 +99,7 @@ void main()
                 moveGameCharacter(&spin, spin.x, spin.y);
                 break;
         }
+
         fire.y += 5;
         if(fire.y >= 144)
         {
@@ -104,4 +110,5 @@ void main()
 
         perfomantDelay(5);
     }
+    printf("\n \n \n \n \n \n \n \n \n === GAME OVER ===");
 }
