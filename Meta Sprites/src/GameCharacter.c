@@ -1,5 +1,3 @@
-#include <gb/gb.h>
-
 struct GameCharacter
 {
     UBYTE spriteIds[4];
