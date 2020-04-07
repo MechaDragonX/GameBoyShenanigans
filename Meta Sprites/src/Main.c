@@ -3,7 +3,6 @@
 #include "src/GameCharacter.c"
 #include "src/SpriteTiles.c"
 
-struct GameCharacter smiley;
 struct GameCharacter spin;
 UBYTE spriteSize = 8;
 UINT8 speed = 5;
